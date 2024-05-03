@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Self, Iterable
 from .keys import *
 
 class LevelObject:
@@ -26,6 +26,10 @@ class LevelObject:
         return self \
             .set(K_SCALE_X, x) \
             .set(K_SCALE_Y, y)
+
+    def set_groups(self, groups: Iterable[int]) -> Self:
+        groups_as_str = [str(gid) for gid in groups]
+        return self.set(K_GROUPS, ".".join(groups_as_str))
 
     def to_string(self) -> str:
         return ",".join([f"{k},{v}" for k, v in sorted(self.properties.items())]) + ";"
