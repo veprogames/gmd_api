@@ -47,3 +47,6 @@ def get_default_colors() -> list[ColorChannel]:
         ColorChannel(CHANNEL_P1).set_rgb(255, 255, 255),
         ColorChannel(CHANNEL_P2).set_rgb(255, 255, 255),
     ]
+
+def make_hsv_string(h: int, s: float, v: float) -> str:
+    return f"{h}a{s}a{v}a0a0"

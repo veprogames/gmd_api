@@ -1,5 +1,6 @@
 from typing import Self, Iterable
 from .keys.objects import *
+from .color import make_hsv_string
 
 class LevelObject:
     def __init__(self, id: int) -> None:
@@ -36,6 +37,20 @@ class LevelObject:
     def set_color_channels(self, base_id: int, detail_id: int) -> Self:
         return self.set_base_color(base_id) \
             .set_detail_color(detail_id)
+    
+    def set_base_hsv(self, h: int, s: float, v: float) -> Self:
+        return self.set(K_HSV_BASE_ENABLED, 1) \
+            .set(K_HSV_BASE, make_hsv_string(h, s, v))
+    
+    def disable_base_hsv(self) -> Self:
+        return self.set(K_HSV_BASE_ENABLED, 0)
+
+    def set_detail_hsv(self, h: int, s: float, v: float) -> Self:
+        return self.set(K_HSV_DETAIL_ENABLED, 1) \
+            .set(K_HSV_DETAIL, make_hsv_string(h, s, v))
+    
+    def disable_detail_hsv(self) -> Self:
+        return self.set(K_HSV_DETAIL, 0)
 
     def set_groups(self, groups: Iterable[int]) -> Self:
         groups_as_str = [str(gid) for gid in groups]
