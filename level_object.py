@@ -27,6 +27,16 @@ class LevelObject:
             .set(K_SCALE_X, x) \
             .set(K_SCALE_Y, y)
 
+    def set_base_color(self, channel_id: int) -> Self:
+        return self.set(K_COLOR_CHANNEL_BASE, channel_id)
+    
+    def set_detail_color(self, channel_id: int) -> Self:
+        return self.set(K_COLOR_CHANNEL_DETAIL, channel_id)
+
+    def set_color_channels(self, base_id: int, detail_id: int) -> Self:
+        return self.set_base_color(base_id) \
+            .set_detail_color(detail_id)
+
     def set_groups(self, groups: Iterable[int]) -> Self:
         groups_as_str = [str(gid) for gid in groups]
         return self.set(K_GROUPS, ".".join(groups_as_str))
