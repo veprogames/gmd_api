@@ -1,4 +1,4 @@
-from level_object import LevelObject
+from .level_object import LevelObject
 from typing import Self
 import gzip
 from base64 import urlsafe_b64encode
@@ -18,12 +18,9 @@ class Level:
         objects: str = "".join([obj.to_string() for obj in self.objects])
 
         raw_level_string = bytes(f"{prelude}{objects}", encoding="utf-8")
-        print(raw_level_string)
         return urlsafe_b64encode(gzip.compress(raw_level_string)).decode("utf-8")
 
     def to_string(self) -> str:
-        print(self.get_level_string())
-
         string: str = f"""<?xml version="1.0"?>
 <plist version="1.0" gjver="2.0">
     <dict>
