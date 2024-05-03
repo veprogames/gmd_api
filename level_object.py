@@ -1,5 +1,5 @@
 from typing import Self, Iterable
-from .keys import *
+from .keys.objects import *
 
 class LevelObject:
     def __init__(self, id: int) -> None:
