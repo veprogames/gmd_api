@@ -4,9 +4,9 @@ import gzip
 from base64 import urlsafe_b64encode
 
 class Level:
-    def __init__(self) -> None:
-        self.author: str = ""
-        self.name: str = ""
+    def __init__(self, author: str = "", name: str = "") -> None:
+        self.author: str = author
+        self.name: str = name
         self.objects: list[LevelObject] = []
 
     def add_object(self, obj: LevelObject) -> Self:
