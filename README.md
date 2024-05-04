@@ -9,7 +9,7 @@ This is a rather low level interface. There are helper methods, but no safeguard
 # Installation
 
 - venv, conda, micromamba or any other environment solution recommended
-- `pip install https://github.com/veprogames/gmd_api`
+- `pip install git+https://github.com/veprogames/gmd_api`
 - or add it to requirements.txt
 - remember the above notation supports specifying a specific commit hash
 
