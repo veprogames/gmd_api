@@ -5,7 +5,7 @@ from .color import make_hsv_string
 class LevelObject:
     def __init__(self, id: int) -> None:
         self.properties: dict[int, any] = {}
-        self.properties[K_ID] = id
+        self.properties[ID] = id
         self.properties[155] = 1 # ???
     
     def get(self, key: int) -> any:
@@ -17,44 +17,44 @@ class LevelObject:
     
     def move_to(self, x: float, y: float) -> Self:
         return self \
-            .set(K_POS_X, x) \
-            .set(K_POS_Y, y)
+            .set(POS_X, x) \
+            .set(POS_Y, y)
 
     def rotate_to(self, degrees: float) -> Self:
-        return self.set(K_ROTATION_DEGREES, degrees)
+        return self.set(ROTATION_DEGREES, degrees)
 
     def scale_to(self, x: float, y: float) -> Self:
         return self \
-            .set(K_SCALE_X, x) \
-            .set(K_SCALE_Y, y)
+            .set(SCALE_X, x) \
+            .set(SCALE_Y, y)
 
     def set_base_color(self, channel_id: int) -> Self:
-        return self.set(K_COLOR_CHANNEL_BASE, channel_id)
+        return self.set(COLOR_CHANNEL_BASE, channel_id)
     
     def set_detail_color(self, channel_id: int) -> Self:
-        return self.set(K_COLOR_CHANNEL_DETAIL, channel_id)
+        return self.set(COLOR_CHANNEL_DETAIL, channel_id)
 
     def set_color_channels(self, base_id: int, detail_id: int) -> Self:
         return self.set_base_color(base_id) \
             .set_detail_color(detail_id)
     
     def set_base_hsv(self, h: int, s: float, v: float) -> Self:
-        return self.set(K_HSV_BASE_ENABLED, 1) \
-            .set(K_HSV_BASE, make_hsv_string(h, s, v))
+        return self.set(HSV_BASE_ENABLED, 1) \
+            .set(HSV_BASE, make_hsv_string(h, s, v))
     
     def disable_base_hsv(self) -> Self:
-        return self.set(K_HSV_BASE_ENABLED, 0)
+        return self.set(HSV_BASE_ENABLED, 0)
 
     def set_detail_hsv(self, h: int, s: float, v: float) -> Self:
-        return self.set(K_HSV_DETAIL_ENABLED, 1) \
-            .set(K_HSV_DETAIL, make_hsv_string(h, s, v))
+        return self.set(HSV_DETAIL_ENABLED, 1) \
+            .set(HSV_DETAIL, make_hsv_string(h, s, v))
     
     def disable_detail_hsv(self) -> Self:
-        return self.set(K_HSV_DETAIL, 0)
+        return self.set(HSV_DETAIL, 0)
 
     def set_groups(self, groups: Iterable[int]) -> Self:
         groups_as_str = [str(gid) for gid in groups]
-        return self.set(K_GROUPS, ".".join(groups_as_str))
+        return self.set(GROUPS, ".".join(groups_as_str))
 
     def to_string(self) -> str:
         return ",".join([f"{k},{v}" for k, v in sorted(self.properties.items())]) + ";"

@@ -6,10 +6,10 @@ class ColorChannel:
     def __init__(self, id: int) -> None:
         self.properties: dict[int, any] = {}
 
-        self.set(K_ID, id)
-        self.set(K_RED, 0)
-        self.set(K_GREEN, 0)
-        self.set(K_BLUE, 0)
+        self.set(ID, id)
+        self.set(RED, 0)
+        self.set(GREEN, 0)
+        self.set(BLUE, 0)
 
         # unknown for now
         self.set(11, 255)
@@ -28,9 +28,9 @@ class ColorChannel:
         return self
 
     def set_rgb(self, r: int, g: int, b: int) -> Self:
-        return self.set(K_RED, r) \
-            .set(K_GREEN, g) \
-            .set(K_BLUE, b)
+        return self.set(RED, r) \
+            .set(GREEN, g) \
+            .set(BLUE, b)
     
     def to_string(self) -> str:
         return "_".join([f"{k}_{v}" for k, v in self.properties.items()]) + "|"

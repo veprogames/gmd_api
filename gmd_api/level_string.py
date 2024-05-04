@@ -16,16 +16,16 @@ class InnerLevelString:
         return self
     
     def set_platformer(self, to: bool = True) -> Self:
-        return self.set(K_IS_PLATFORMER, to)
+        return self.set(IS_PLATFORMER, to)
     
     def set_background_id(self, id: int) -> Self:
-        return self.set(K_BG_ID, id)
+        return self.set(BG_ID, id)
     
     def set_ground_id(self, id: int) -> Self:
-        return self.set(K_GROUND_ID, id)
+        return self.set(GROUND_ID, id)
     
     def set_middleground_id(self, id: int) -> Self:
-        return self.set(K_MG_ID, id)
+        return self.set(MG_ID, id)
 
     def to_raw_string(self) -> str:
         colors: str = "".join([channel.to_string() for channel in self.color_channels])

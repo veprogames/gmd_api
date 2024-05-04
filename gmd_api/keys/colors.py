@@ -1,4 +1,4 @@
-K_RED = 1
-K_GREEN = 2
-K_BLUE = 3
-K_ID = 6
+RED = 1
+GREEN = 2
+BLUE = 3
+ID = 6

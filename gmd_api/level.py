@@ -12,31 +12,31 @@ class Level:
 
         self.set_name(name)
         self.set_description(description)
-        self.set(K_LEVEL_VERSION, 1)
-        self.set(K_LEVEL_TYPE, LEVEL_TYPE_LOCAL)
-        self.set(K_BINARY_VERSION, 40)
-        self.set(K_KCEK, 4)
+        self.set(LEVEL_VERSION, 1)
+        self.set(LEVEL_TYPE, LEVEL_TYPE_LOCAL)
+        self.set(BINARY_VERSION, 40)
+        self.set(KCEK, 4)
     
     def set(self, key: str, value: any) -> Self:
         self.properties[key] = value
         return self
     
     def set_time_spent(self, seconds: int) -> Self:
-        return self.set(K_SECS_SPENT_EDITING, seconds)
+        return self.set(SECS_SPENT_EDITING, seconds)
     
     def set_official_song_id(self, id: int) -> Self:
-        return self.set(K_OFFICIAL_SONG_ID, id)
+        return self.set(OFFICIAL_SONG_ID, id)
     
     def set_custom_song_id(self, id: int) -> Self:
-        return self.set(K_CUSTOM_SONG_ID, id)
+        return self.set(CUSTOM_SONG_ID, id)
     
     def set_name(self, name: str) -> Self:
-        return self.set(K_LEVEL_NAME, name)
+        return self.set(LEVEL_NAME, name)
 
     def set_description(self, description: str) -> Self:
         encoded = base64.urlsafe_b64encode(bytes(description, encoding="utf-8"))
         decoded_back = encoded.decode("utf-8")
-        return self.set(K_DESCRIPTION_BASE64, decoded_back)
+        return self.set(DESCRIPTION_BASE64, decoded_back)
 
     def add_object(self, obj: LevelObject) -> Self:
         self.inner_string.objects.append(obj)
