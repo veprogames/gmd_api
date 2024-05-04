@@ -5,8 +5,7 @@ import gzip
 from base64 import urlsafe_b64encode
 
 class Level:
-    def __init__(self, author: str = "", name: str = "") -> None:
-        self.author: str = author
+    def __init__(self, name: str = "") -> None:
         self.name: str = name
         self.objects: list[LevelObject] = []
         self.color_channels: list[ColorChannel] = get_default_colors()
@@ -34,35 +33,9 @@ class Level:
         <k>kCEK</k><i>4</i>
         <k>k2</k><s>{self.name}</s>
         <k>k4</k><s>{self.get_level_string()}</s>
-        <k>k5</k><s>{self.author}</s>
-        <k>k101</k><s>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</s>
-        <k>k13</k><t />
         <k>k21</k><i>2</i>
         <k>k16</k><i>1</i>
-        <k>k80</k><i>7</i>
         <k>k50</k><i>40</i>
-        <k>k47</k><t />
-        <k>k48</k><i>1</i>
-        <k>kI1</k><r>183.721</r>
-        <k>kI2</k><r>82.2666</r>
-        <k>kI3</k><r>0.7</r>
-        <k>kI6</k>
-        <d>
-            <k>0</k><s>0</s>
-            <k>1</k><s>0</s>
-            <k>2</k><s>0</s>
-            <k>3</k><s>0</s>
-            <k>4</k><s>0</s>
-            <k>5</k><s>0</s>
-            <k>6</k><s>0</s>
-            <k>7</k><s>0</s>
-            <k>8</k><s>0</s>
-            <k>9</k><s>0</s>
-            <k>10</k><s>0</s>
-            <k>11</k><s>0</s>
-            <k>12</k><s>0</s>
-            <k>13</k><s>0</s>
-        </d>
     </dict>
 </plist>"""
         return string \
