@@ -22,7 +22,7 @@ from gmd_api.level import Level
 from gmd_api.level_object import LevelObject
 from gmd_api.color import ColorChannel
 
-lvl = Level(name="~* Bypassing the Title Limits of the Client *~", description="")
+lvl = Level(name="~* Bypassing the Title Limits of the Client *~")
 
 for x in range(30):
     for y in range(30):
