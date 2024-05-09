@@ -2,3 +2,4 @@ RED = 1
 GREEN = 2
 BLUE = 3
 ID = 6
+OPACITY = 7

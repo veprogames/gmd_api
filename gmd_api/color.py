@@ -32,6 +32,12 @@ class ColorChannel:
             .set(GREEN, g) \
             .set(BLUE, b)
     
+    def set_opacity(self, opacity: float) -> Self:
+        return self.set(OPACITY, opacity)
+    
+    def set_rgba(self, r: int, g: int, b: int, a: float) -> Self:
+        return self.set_rgb(r, g, b).set_opacity(a)
+    
     def to_string(self) -> str:
         return "_".join([f"{k}_{v}" for k, v in self.properties.items()]) + "|"
 
